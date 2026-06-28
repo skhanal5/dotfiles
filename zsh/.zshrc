@@ -2,6 +2,11 @@
 # .zshrc
 # =============================================================================
 
+
+# =============================================================================
+# Oh My Zsh
+# =============================================================================
+
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
@@ -12,34 +17,97 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
-# GIT ALIASES
+
+
+# =============================================================================
+# Git aliases
+# =============================================================================
+
 alias gds='git diff --staged'
 alias gpf='git push --force-with-lease'
 alias gplr='git pull --rebase'
 alias grss='git restore --staged'
 
-# AUTOSUGGESTIONS
+
+
+# =============================================================================
+# Autosuggestions
+# =============================================================================
+
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 
-# UV
-eval "$(uv generate-shell-completion zsh)"
 
-# SDKMAN — must be at end of file
+
+# =============================================================================
+# UV / Python
+# =============================================================================
+
+if command -v uv >/dev/null 2>&1; then
+  eval "$(uv generate-shell-completion zsh)"
+fi
+
+
+
+# =============================================================================
+# SDKMAN / Java
+# =============================================================================
+
 export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# GOOGLE CLOUD SDK
-if [ -f '/Users/subodh/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/subodh/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/Users/subodh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/subodh/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]; then
+  source "$SDKMAN_DIR/bin/sdkman-init.sh"
+fi
 
+
+
+# =============================================================================
+# Google Cloud SDK
+# =============================================================================
+
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then
+  source "$HOME/google-cloud-sdk/path.zsh.inc"
+fi
+
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then
+  source "$HOME/google-cloud-sdk/completion.zsh.inc"
+fi
+
+
+
+# =============================================================================
 # opencode
-export PATH=/Users/subodh/.opencode/bin:$PATH
+# =============================================================================
 
-# GO
-export PATH="$PATH:$(go env GOPATH)/bin"
+if [ -d "$HOME/.opencode/bin" ]; then
+  export PATH="$HOME/.opencode/bin:$PATH"
+fi
 
 
-# Added by Antigravity CLI installer
-export PATH="/Users/subodh/.local/bin:$PATH"
+
+# =============================================================================
+# Go
+# =============================================================================
+
+if command -v go >/dev/null 2>&1; then
+  export PATH="$PATH:$(go env GOPATH)/bin"
+fi
+
+
+
+# =============================================================================
+# Local binaries
+# =============================================================================
+
+export PATH="$HOME/.local/bin:$PATH"
+
+
+
+# =============================================================================
+# fnm / Node (optional)
+# =============================================================================
+
+if command -v fnm >/dev/null 2>&1; then
+  eval "$(fnm env --use-on-cd)"
+fi
