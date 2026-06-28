@@ -1,21 +1,20 @@
 # Theme
-theme = Catppuccin Mocha
+theme = Rose Pine Moon
 
 # Font
-font-family = JetBrainsMono Nerd Font
-font-size = 14
+font-family = Hack Nerd Font
+font-size = 13
 font-feature = -liga
 font-thicken = true
 
 # Cursor
-cursor-style = block
-cursor-style-blink = false
+cursor-style = bar
 shell-integration-features = cursor
 
 # Window
-macos-titlebar-style = hidden
+macos-titlebar-style = tabs
 window-padding-x = 12
-window-padding-y = 10
+window-padding-y = 12
 
 # Scrollback
 scrollback-limit = 10000000
@@ -24,8 +23,8 @@ scrollback-limit = 10000000
 macos-option-as-alt = true
 
 # Transparency
-background-opacity = 0.95
-background-blur-radius = 15
+background-opacity = 0.85
+background-blur-radius = 20
 
 # Clipboard
 copy-on-select = false
