@@ -1,0 +1,34 @@
+# Theme
+theme = Catppuccin Mocha
+
+# Font
+font-family = JetBrainsMono Nerd Font
+font-size = 14
+font-feature = -liga
+font-thicken = true
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = cursor
+
+# Window
+macos-titlebar-style = hidden
+window-padding-x = 12
+window-padding-y = 10
+
+# Scrollback
+scrollback-limit = 10000000
+
+# macOS behavior
+macos-option-as-alt = true
+
+# Transparency
+background-opacity = 0.95
+background-blur-radius = 15
+
+# Clipboard
+copy-on-select = false
+
+# Safety
+confirm-close-surface = true

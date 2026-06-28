@@ -33,3 +33,13 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # GOOGLE CLOUD SDK
 if [ -f '/Users/subodh/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/subodh/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '/Users/subodh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/subodh/google-cloud-sdk/completion.zsh.inc'; fi
+
+# opencode
+export PATH=/Users/subodh/.opencode/bin:$PATH
+
+# GO
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/subodh/.local/bin:$PATH"
