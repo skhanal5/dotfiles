@@ -49,6 +49,14 @@ link_file \
   "$DOTFILES/tmux/tmux.conf" \
   "$HOME/.config/tmux/tmux.conf"
 
+link_file \
+  "$DOTFILES/git/gitconfig" \
+  "$HOME/.gitconfig"
+
+link_file \
+  "$DOTFILES/git/ignore" \
+  "$HOME/.config/git/ignore"
+
 # =============================================================================
 # Claude Code
 # =============================================================================
