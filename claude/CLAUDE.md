@@ -18,7 +18,7 @@
 
 ## Hard Constraint (always applies, no exceptions)
 
-Never push or commit directly to `main`, and never merge or self-merge a Pull Request without explicit in-session instruction (e.g. "merge this PR").
+Never push or commit directly to `main`, and never merge or self-merge a Pull Request without explicit in-session instruction (e.g. "merge this PR"). The one exception: a project's `CLAUDE.md` may allow merges after named checks pass. Then follow that project rule exactly.
 
 ## Execution Rule
 
