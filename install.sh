@@ -46,6 +46,35 @@ link_file \
   "$HOME/.config/ghostty/config"
 
 # =============================================================================
+# Claude Code
+# =============================================================================
+
+echo "Linking Claude Code config..."
+
+link_file \
+  "$DOTFILES/claude/CLAUDE.md" \
+  "$HOME/.claude/CLAUDE.md"
+
+# Link each skill on its own. Other tools also install skills in this folder.
+# Back up real folders outside the skills folder. A backup inside it would load as a duplicate skill.
+SKILLS_TARGET="$HOME/.claude/skills"
+SKILLS_BACKUP="$HOME/.claude/skills-backup"
+mkdir -p "$SKILLS_TARGET"
+
+for skill in "$DOTFILES"/claude/skills/*/; do
+  name="$(basename "$skill")"
+  target="$SKILLS_TARGET/$name"
+
+  if [ -e "$target" ] && [ ! -L "$target" ]; then
+    mkdir -p "$SKILLS_BACKUP"
+    rm -rf "$SKILLS_BACKUP/$name"
+    mv "$target" "$SKILLS_BACKUP/$name"
+  fi
+
+  link_file "${skill%/}" "$target"
+done
+
+# =============================================================================
 # Homebrew
 # =============================================================================
 
