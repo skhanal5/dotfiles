@@ -25,9 +25,14 @@ The installer will:
 - Configure the shell environment
 - Install shell plugins
 - Set up Ghostty configuration
+- Link Claude Code skills and the global `CLAUDE.md`
 - Create symlinks so this repo remains the source of truth
 
 After installation, restart your terminal.
+
+## Claude Code
+
+The `claude/` folder holds Claude Code skills and the global `CLAUDE.md` policy. See [claude/README.md](claude/README.md) for the skill rules, the check script, and evals.
 
 ## Configuration
 

@@ -1,27 +1,24 @@
-# agentic-coding
+# claude
 
-A small repository of **shared skills and policy** for Claude Code. The files here are never run by the agent directly. `setup.sh` copies them into `~/.claude`.
+Shared skills and global policy for Claude Code. This folder is part of the dotfiles repo.
 
-## Quick setup
+## Setup
 
-```bash
-git clone <url> ~/agentic-coding
-~/agentic-coding/setup.sh
-```
+Run `install.sh` from the repo root. It symlinks:
+- `claude/CLAUDE.md` to `~/.claude/CLAUDE.md`
+- each `claude/skills/<name>/` to `~/.claude/skills/<name>`
 
-The script copies:
-- `skills/` to `~/.claude/skills/` (without `evals/`)
-- `templates/CLAUDE.md` to `~/.claude/CLAUDE.md`
+Edits in this folder are live right away. You do not need to run the install again, except after you add a new skill.
 
-The script warns before it overwrites an existing skills folder.
+The install script moves an existing real skill folder to `~/.claude/skills-backup/` before it links. It does not touch skills from other sources.
 
 ## Structure
 
 ```
-templates/CLAUDE.md         Global policy: language rules, hard constraint, execution rule
+CLAUDE.md                   Global policy: language rules, hard constraint, execution rule
 skills/<name>/SKILL.md      One skill. Loaded when its description matches the task.
 skills/<name>/references/   Long detail that SKILL.md links to. Loaded only when needed.
-skills/<name>/evals/        Trigger evals for the skill. Not installed by setup.sh.
+skills/<name>/evals/        Trigger evals for the skill. Claude does not load them.
 scripts/check_skills.py     Checks that every skill follows the rules below.
 ```
 
@@ -53,6 +50,7 @@ Skills:
 Run the check and its tests before you open a PR:
 
 ```bash
+cd claude
 python3 scripts/check_skills.py
 python3 -m unittest discover -s tests
 ```
@@ -63,7 +61,7 @@ python3 -m unittest discover -s tests
 2. Write `skills/<name>/evals/triggers.json`. Use realistic prompts. Make the should-not-trigger prompts near misses.
 3. Run the trigger evals and tune the description. See below.
 4. Run `python3 scripts/check_skills.py`.
-5. Run `./setup.sh` to install.
+5. Run `../install.sh` to link the new skill.
 
 ## Evals
 
@@ -84,11 +82,3 @@ To tune the description, use `$SC/scripts/run_loop.py` with the same arguments p
 The skill you test is usually also installed in `~/.claude/skills`. The installed copy can load instead of the test copy, and the stock runner then reports 0 triggers. Count a trigger on the real skill name to avoid this. See `skills/writing-skills/SKILL.md` for cost rules and tips.
 
 These runs are real model runs and cost tokens.
-
-## Updating configuration
-
-After you change a skill, run `~/agentic-coding/setup.sh` again.
-
----
-
-*This repository holds configuration, docs, and one check script. It has no application code.*
