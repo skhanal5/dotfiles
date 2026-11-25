@@ -24,7 +24,7 @@ The installer will:
 - Install required tools
 - Configure the shell environment
 - Install shell plugins
-- Set up Ghostty configuration
+- Set up Ghostty and tmux configuration
 - Link Claude Code skills and the global `CLAUDE.md`
 - Create symlinks so this repo remains the source of truth
 
