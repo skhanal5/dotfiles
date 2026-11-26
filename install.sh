@@ -97,7 +97,7 @@ for skill in "$DOTFILES"/claude/skills/*/; do
 
   if [ -e "$target" ] && [ ! -L "$target" ]; then
     mkdir -p "$SKILLS_BACKUP"
-    rm -rf "$SKILLS_BACKUP/$name"
+    rm -rf "${SKILLS_BACKUP:?}/${name:?}"
     mv "$target" "$SKILLS_BACKUP/$name"
   fi
 
