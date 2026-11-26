@@ -54,6 +54,10 @@ link_file \
   "$HOME/.config/starship.toml"
 
 link_file \
+  "$DOTFILES/mise/config.toml" \
+  "$HOME/.config/mise/config.toml"
+
+link_file \
   "$DOTFILES/git/gitconfig" \
   "$HOME/.gitconfig"
 
@@ -132,6 +136,14 @@ fi
 echo "Installing packages..."
 
 brew bundle --file="$DOTFILES/Brewfile"
+
+# =============================================================================
+# Language versions
+# =============================================================================
+
+echo "Installing Java and Node with mise..."
+
+mise install
 
 # =============================================================================
 # Git hooks for this repo

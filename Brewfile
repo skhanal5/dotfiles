@@ -31,8 +31,7 @@ brew "shellcheck"
 # Languages and build tools
 # =============================================================================
 
-brew "node"
-brew "openjdk@17"
+brew "mise"
 brew "maven"
 brew "protobuf"
 

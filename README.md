@@ -25,6 +25,7 @@ The installer will:
 - Configure the shell environment
 - Install shell plugins
 - Set up Ghostty, tmux, and Starship configuration
+- Install Java and Node with mise (versions are in `mise/config.toml`)
 - Link the global git config and git ignore file
 - Link Claude Code skills and the global `CLAUDE.md`
 - Create symlinks so this repo remains the source of truth
