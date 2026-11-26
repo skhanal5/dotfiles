@@ -16,6 +16,7 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   you-should-use
+  kubectl
 )
 
 source "$ZSH/oh-my-zsh.sh"
@@ -162,4 +163,23 @@ fi
 
 if command -v bat >/dev/null 2>&1; then
   DOTFILES_HINTS+=(cat 'bat <file> shows syntax colors and line numbers.')
+fi
+
+
+
+# =============================================================================
+# Kubernetes: the kubectl plugin above adds "k" and short aliases
+# =============================================================================
+
+if command -v k9s >/dev/null 2>&1; then
+  DOTFILES_HINTS+=(
+    'kubectl get'      'k9s shows live resources. Type : and a kind, such as :pods.'
+    'k get'            'k9s shows live resources. Type : and a kind, such as :pods.'
+    'kubectl describe' 'k9s shows details. Select a row and press d.'
+    'k describe'       'k9s shows details. Select a row and press d.'
+    'kubectl logs'     'k9s shows logs. Select a pod and press l.'
+    'k logs'           'k9s shows logs. Select a pod and press l.'
+    'kubectl config'   'kubectx switches context. kubens switches namespace.'
+    'k config'         'kubectx switches context. kubens switches namespace.'
+  )
 fi
