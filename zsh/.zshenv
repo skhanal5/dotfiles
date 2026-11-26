@@ -1,3 +1,4 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
-# uv
-export PATH="/Users/subodh/.local/bin:$PATH"
+
+# uv and other user tools
+export PATH="$HOME/.local/bin:$PATH"
