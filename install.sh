@@ -50,6 +50,10 @@ link_file \
   "$HOME/.config/tmux/tmux.conf"
 
 link_file \
+  "$DOTFILES/starship/starship.toml" \
+  "$HOME/.config/starship.toml"
+
+link_file \
   "$DOTFILES/git/gitconfig" \
   "$HOME/.gitconfig"
 
