@@ -59,6 +59,14 @@ Reload Ghostty:
 Cmd + Shift + ,
 ```
 
+## Checks
+
+`pre-commit` runs checks before each commit. It runs `shellcheck` on shell scripts, a syntax check on zsh files, and the Claude skill checks. `install.sh` turns it on. To run all checks by hand:
+
+```bash
+pre-commit run --all-files
+```
+
 ## Backup
 
 Existing configuration files are backed up before being replaced.

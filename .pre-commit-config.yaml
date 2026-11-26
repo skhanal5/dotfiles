@@ -1,0 +1,32 @@
+# Checks that run before each commit.
+# Set up once per clone with: pre-commit install
+repos:
+  - repo: local
+    hooks:
+      - id: shellcheck
+        name: shellcheck
+        entry: shellcheck
+        language: system
+        types: [shell]
+        # shellcheck does not support zsh. The zsh-syntax hook checks those files.
+        exclude: ^zsh/
+
+      - id: zsh-syntax
+        name: zsh syntax
+        entry: zsh -n
+        language: system
+        files: ^zsh/
+
+      - id: check-skills
+        name: check skills
+        entry: python3 claude/scripts/check_skills.py
+        language: system
+        files: ^claude/
+        pass_filenames: false
+
+      - id: skill-check-tests
+        name: skill check tests
+        entry: python3 -m unittest discover -s claude/tests
+        language: system
+        files: ^claude/
+        pass_filenames: false

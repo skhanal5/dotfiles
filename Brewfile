@@ -21,6 +21,7 @@ brew "starship"
 brew "uv"
 brew "tmux"
 brew "pre-commit"
+brew "shellcheck"
 
 # =============================================================================
 # Languages and build tools
