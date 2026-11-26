@@ -67,6 +67,24 @@ link_file \
   "$DOTFILES/claude/CLAUDE.md" \
   "$HOME/.claude/CLAUDE.md"
 
+# Merge, do not link. The live file keeps keys that belong to this machine
+# only, such as autoMode. The repo copy must never hold those keys.
+SETTINGS="$HOME/.claude/settings.json"
+
+if [ ! -e "$SETTINGS" ]; then
+  cp "$DOTFILES/claude/settings.json" "$SETTINGS"
+elif command -v jq >/dev/null 2>&1; then
+  # Repo values win for the keys the repo sets. Other keys stay.
+  jq -s '.[0] * .[1]' "$SETTINGS" "$DOTFILES/claude/settings.json" > "$SETTINGS.tmp"
+  mv "$SETTINGS.tmp" "$SETTINGS"
+else
+  echo "jq not found. Skipped merge into $SETTINGS."
+fi
+
+link_file \
+  "$DOTFILES/claude/statusline-command.sh" \
+  "$HOME/.claude/statusline-command.sh"
+
 # Link each skill on its own. Other tools also install skills in this folder.
 # Back up real folders outside the skills folder. A backup inside it would load as a duplicate skill.
 SKILLS_TARGET="$HOME/.claude/skills"
