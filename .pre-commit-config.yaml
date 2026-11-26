@@ -13,7 +13,8 @@ repos:
 
       - id: zsh-syntax
         name: zsh syntax
-        entry: zsh -n
+        # zsh -n checks only its first file, so check each file in turn
+        entry: zsh -c 'for f in "$@"; do zsh -n "$f" || exit 1; done' --
         language: system
         files: ^zsh/
 
