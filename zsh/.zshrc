@@ -179,3 +179,18 @@ if command -v k9s >/dev/null 2>&1; then
     'kubectl config'   'kubectx switches context. kubens switches namespace.'
   )
 fi
+
+
+
+# =============================================================================
+# lazygit: a terminal UI for staging, commits, and branches
+# =============================================================================
+
+if command -v lazygit >/dev/null 2>&1; then
+  alias lg='lazygit'
+
+  DOTFILES_HINTS+=(
+    'git add' 'lg opens lazygit. Press space to stage a file and c to commit.'
+    'git log' 'lg opens lazygit. Press 4 for the commit list.'
+  )
+fi
