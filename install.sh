@@ -172,6 +172,14 @@ if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
     "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 fi
 
+if [ ! -d "$ZSH_CUSTOM/plugins/you-should-use" ]; then
+  echo "Installing zsh-you-should-use..."
+
+  git clone \
+    https://github.com/MichaelAquilina/zsh-you-should-use \
+    "$ZSH_CUSTOM/plugins/you-should-use"
+fi
+
 # =============================================================================
 # macOS defaults
 # =============================================================================
