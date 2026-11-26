@@ -11,7 +11,7 @@ Run `install.sh` from the repo root. It symlinks:
 
 `claude/settings.json` is not linked. `install.sh` merges it into `~/.claude/settings.json`:
 - The repo copy holds only settings that are safe to share and work on any machine.
-- The live file keeps keys for this machine only, such as `autoMode`. Claude Code writes `autoMode` from a scan of your machine. This repo is public, so that key must never be in it.
+- The live file keeps keys for this machine only, such as `autoMode`. Claude Code writes `autoMode` from a scan of your machine. This repo is public, so that key must never be in it. A pre-commit check blocks it.
 - To share a new setting, add it to `claude/settings.json` and run `install.sh` again.
 
 Edits in this folder are live right away. You do not need to run the install again, except after you add a new skill.

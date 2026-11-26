@@ -31,3 +31,10 @@ repos:
         language: system
         files: ^claude/
         pass_filenames: false
+
+      # This repo is public. autoMode holds a scan of this machine.
+      - id: no-claude-automode
+        name: no autoMode in shared Claude settings
+        entry: jq -e 'has("autoMode") | not'
+        language: system
+        files: ^claude/settings\.json$
