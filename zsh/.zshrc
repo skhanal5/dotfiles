@@ -142,3 +142,24 @@ if command -v zoxide >/dev/null 2>&1; then
 
   DOTFILES_HINTS+=(cd 'z <part of name> jumps to a folder. zi picks one with fzf.')
 fi
+
+
+
+# =============================================================================
+# eza and bat: better ls and cat. The old commands still work.
+# =============================================================================
+
+if command -v eza >/dev/null 2>&1; then
+  alias ll='eza -l --git --icons=auto'
+  alias la='eza -la --git --icons=auto'
+  alias lt='eza --tree --level=2 --icons=auto'
+
+  DOTFILES_HINTS+=(
+    ls   'll shows details and git status. la adds hidden files. lt shows a tree.'
+    tree 'lt shows a tree with icons.'
+  )
+fi
+
+if command -v bat >/dev/null 2>&1; then
+  DOTFILES_HINTS+=(cat 'bat <file> shows syntax colors and line numbers.')
+fi
