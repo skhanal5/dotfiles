@@ -1,3 +1,14 @@
 [user]
 	name = Subodh Khanal
 	email = 74752121+skhanal5@users.noreply.github.com
+
+# delta: colored diffs with line numbers. Press n and N to jump between files.
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	line-numbers = true
+[merge]
+	conflictStyle = zdiff3

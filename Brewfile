@@ -4,6 +4,7 @@
 
 brew "git"
 brew "gh"
+brew "git-delta"
 
 brew "neovim"
 
