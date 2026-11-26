@@ -129,3 +129,15 @@ if command -v fzf >/dev/null 2>&1; then
 
   source <(fzf --zsh)
 fi
+
+
+
+# =============================================================================
+# zoxide: "z <part of name>" jumps to a folder you visited before
+# =============================================================================
+
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+
+  DOTFILES_HINTS+=(cd 'z <part of name> jumps to a folder. zi picks one with fzf.')
+fi

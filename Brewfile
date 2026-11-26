@@ -10,6 +10,7 @@ brew "neovim"
 brew "fzf"
 brew "ripgrep"
 brew "fd"
+brew "zoxide"
 
 brew "eza"
 brew "bat"
