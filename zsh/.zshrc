@@ -103,3 +103,18 @@ fi
 if command -v fnm >/dev/null 2>&1; then
   eval "$(fnm env --use-on-cd)"
 fi
+
+
+
+# =============================================================================
+# fzf: Ctrl-R history, Ctrl-T files, Alt-C folders
+# =============================================================================
+
+if command -v fzf >/dev/null 2>&1; then
+  # Use fd so search is fast, shows dotfiles, and skips .git
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
+
+  source <(fzf --zsh)
+fi
