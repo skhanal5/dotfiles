@@ -24,6 +24,7 @@ brew "starship"
 brew "uv"
 brew "tmux"
 brew "pre-commit"
+brew "direnv"
 brew "shellcheck"
 
 # =============================================================================
