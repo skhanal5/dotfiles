@@ -204,6 +204,20 @@ fi
 
 
 # =============================================================================
+# Cheat sheet and short command examples
+# =============================================================================
+
+alias cheat='bat --style=plain "$DOTFILES_ZSH/../docs/cheatsheet.md"'
+
+DOTFILES_HINTS+=(clear 'Ctrl-L clears the screen. Run cheat to see what you are learning.')
+
+if command -v tldr >/dev/null 2>&1; then
+  DOTFILES_HINTS+=(man 'tldr <command> shows short examples.')
+fi
+
+
+
+# =============================================================================
 # Starship prompt. Keep this last so it wraps everything above.
 # =============================================================================
 
