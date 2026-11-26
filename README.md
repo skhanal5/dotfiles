@@ -60,6 +60,12 @@ Reload Ghostty:
 Cmd + Shift + ,
 ```
 
+## Learning the tools
+
+`docs/cheatsheet.md` lists the tools to learn, one group per week. Run `cheat` to show it.
+
+When you run an old command, the shell prints a short tip about the newer tool. The tips live in `zsh/.zshrc`. Remove a tip once the habit sticks.
+
 ## Checks
 
 `pre-commit` runs checks before each commit. It runs `shellcheck` on shell scripts, a syntax check on zsh files, and the Claude skill checks. `install.sh` turns it on. To run all checks by hand:

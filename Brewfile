@@ -19,6 +19,7 @@ brew "bat"
 brew "jq"
 brew "tree"
 brew "htop"
+brew "tlrc"
 
 brew "starship"
 brew "uv"
