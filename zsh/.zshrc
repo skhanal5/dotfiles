@@ -65,13 +65,16 @@ fi
 
 
 # =============================================================================
-# SDKMAN / Java
+# mise: Java and Node versions (see mise/config.toml)
 # =============================================================================
 
-export SDKMAN_DIR="$HOME/.sdkman"
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
 
-if [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]; then
-  source "$SDKMAN_DIR/bin/sdkman-init.sh"
+  DOTFILES_HINTS+=(
+    sdk 'SDKMAN is gone. Use mise use java@<version> or edit mise/config.toml.'
+    fnm 'fnm is gone. Use mise use node@<version> or edit mise/config.toml.'
+  )
 fi
 
 
@@ -106,16 +109,6 @@ fi
 
 if command -v go >/dev/null 2>&1; then
   export PATH="$PATH:$(go env GOPATH)/bin"
-fi
-
-
-
-# =============================================================================
-# fnm / Node (optional)
-# =============================================================================
-
-if command -v fnm >/dev/null 2>&1; then
-  eval "$(fnm env --use-on-cd)"
 fi
 
 

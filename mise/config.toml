@@ -1,0 +1,6 @@
+# Global tool versions for mise. Docs: https://mise.jdx.dev
+# A project can pin its own versions in its own mise.toml.
+
+[tools]
+java = "temurin-17.0.17+10"
+node = "26.8.2"
