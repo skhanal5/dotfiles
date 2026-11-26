@@ -1,0 +1,14 @@
+# Starship prompt. Docs: https://starship.rs/config/
+
+# Show the kube context and namespace. Starship hides this by default.
+[kubernetes]
+disabled = false
+format = '[$symbol$context( \($namespace\))]($style) '
+
+# Show how long a command took when it ran for 2 seconds or more
+[cmd_duration]
+min_time = 2000
+
+# Show the gcloud project, not the account email. This keeps the email off screen shares.
+[gcloud]
+format = '[$symbol$project]($style) '

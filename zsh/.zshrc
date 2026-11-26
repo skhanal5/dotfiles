@@ -9,7 +9,8 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+# Starship draws the prompt (see the end of this file)
+ZSH_THEME=""
 
 plugins=(
   git
@@ -205,4 +206,14 @@ if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 
   DOTFILES_HINTS+=(export 'put project env vars in .envrc, then run direnv allow.')
+fi
+
+
+
+# =============================================================================
+# Starship prompt. Keep this last so it wraps everything above.
+# =============================================================================
+
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
 fi
