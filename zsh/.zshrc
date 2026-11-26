@@ -194,3 +194,15 @@ if command -v lazygit >/dev/null 2>&1; then
     'git log' 'lg opens lazygit. Press 4 for the commit list.'
   )
 fi
+
+
+
+# =============================================================================
+# direnv: load a folder's .envrc when you cd into it
+# =============================================================================
+
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+
+  DOTFILES_HINTS+=(export 'put project env vars in .envrc, then run direnv allow.')
+fi

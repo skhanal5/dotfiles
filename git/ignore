@@ -1,1 +1,4 @@
 **/.claude/settings.local.json
+
+# direnv files often hold secrets. Add one to a repo on purpose with git add -f.
+.envrc
