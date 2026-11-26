@@ -47,6 +47,7 @@ brew "libpq"
 
 brew "kubernetes-cli"
 brew "kubectx"
+brew "k9s"
 brew "helm"
 brew "kind"
 brew "minikube"
