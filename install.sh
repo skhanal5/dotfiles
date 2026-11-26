@@ -76,7 +76,6 @@ if [ ! -e "$SETTINGS" ]; then
 elif command -v jq >/dev/null 2>&1; then
   # Repo values win for the keys the repo sets. Other keys stay.
   jq -s '.[0] * .[1]' "$SETTINGS" "$DOTFILES/claude/settings.json" > "$SETTINGS.tmp"
-  rm "$SETTINGS"
   mv "$SETTINGS.tmp" "$SETTINGS"
 else
   echo "jq not found. Skipped merge into $SETTINGS."
