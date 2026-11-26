@@ -45,6 +45,10 @@ link_file \
   "$DOTFILES/ghostty/config" \
   "$HOME/.config/ghostty/config"
 
+link_file \
+  "$DOTFILES/tmux/tmux.conf" \
+  "$HOME/.config/tmux/tmux.conf"
+
 # =============================================================================
 # Claude Code
 # =============================================================================
